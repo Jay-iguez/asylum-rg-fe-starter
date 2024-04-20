@@ -33,16 +33,33 @@ function RenderLandingPage(props) {
 
       {/* Graphs Section: Add code here for the graphs section for your first ticket */}
       {/* <div className="graphs-section"> */}
+      <div className="graphs-section"></div>
       <div className="view-more-data-btn-container">
         <Button
           type="default"
-          style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+          style={{
+            backgroundColor: '#404C4A',
+            color: '#FFFFFF',
+            textAlign: 'center',
+          }}
           onClick={() => history.push('/graphs')}
         >
           View the Data
         </Button>
+        <a href="https://humanrightsfirst.org/wp-content/uploads/2022/10/COW2021001887-I589Data.csv">
+          <Button
+            type="default"
+            style={{
+              backgroundColor: '#404C4A',
+              color: '#FFFFFF',
+              textAlign: 'center',
+            }}
+            onClick={() => console.log('dlog')}
+          >
+            Download the Data
+          </Button>
+        </a>
       </div>
-
       <div className="middle-section">
         <div className="hrf-img-container">
           <img src={HrfPhoto} alt="Human Rights First" className="hrf-img" />

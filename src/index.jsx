@@ -26,6 +26,7 @@ import { colors } from './styles/data_vis_colors';
 const { primary_accent_color } = colors;
 
 const store = configureStore({ reducer: reducer });
+
 ReactDOM.render(
   <Router>
     <Provider store={store}>
