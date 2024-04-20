@@ -45,6 +45,10 @@
 //  ADD THIS BACK IN WHEN YOU HAVE THE GRAPHS SECTION
 // }
 
+.graphs-section {
+    display: flex;
+    justify-content: space-evenly;
+}
 
 
 .view-more-data-btn-container {
@@ -139,7 +143,11 @@
         width: 100%;
     }
 
-    .grant-rates-by-office-graph-container {
+    .grant-rates-by-office-graph-container { // Changed this - must create styles within main body to reflect all media queries
+        text-align: center;
+        height: 165px;
+        font-size: 1.5rem;
+        font-family: 'acumin';
         margin-top: 20%;
         margin-bottom: 40%;
     }
@@ -599,7 +607,7 @@
         margin-bottom: 40%;
     }
 
-    .grant-rates-by-office-graph-container p {
+    .grant-rates-by-office-graph-container {
         font-size: 2.5rem;
     }
 
