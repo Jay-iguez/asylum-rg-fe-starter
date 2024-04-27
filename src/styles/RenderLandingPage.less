@@ -125,37 +125,34 @@
 //      ADD THIS BACK IN WHEN YOU HAVE A BOTTOM SECTION
 // }
 
-.bottom-section {
+//
+.bottom-section { // Parent <div> of bottom-section
     text-align: center;
     margin-top: 10%;
     font-family: 'moneta';
 }
 
-.bottom-section h1 {
+.bottom-section h1 { // Specific heading style of parent <div>
     font-size: 3.5rem;
     margin-bottom: 10%;
 }
 
-.data-container {
+.data-container { // Container for data points
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 5%;
 }
 
-.data-container h2 {
-    font-size: 3rem;
-}
-
-.data-container h3 {
-    font-size: 1.2rem;
-}
-
-.cont {
+.data-point { // .data-point class for styling of each data point
     width: 433px;
 }
 
-.read-more-btn {
-    font-family: default;
+.data-point h2 {
+    font-size: 3rem;
+}
+
+.data-point h3 {
+    font-size: 1.2rem;
 }
 
 // .bottom-section END
@@ -167,6 +164,7 @@
     cursor: pointer;
     color: black;
     margin: 5% auto;
+    font-family: sans-serif;
 }
 
 .ant-space-align-center {
