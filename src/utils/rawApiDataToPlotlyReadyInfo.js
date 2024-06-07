@@ -1,4 +1,5 @@
 const rawApiDataToPlotlyReadyInfo = (view, office, data) => {
+  console.log('THE DATA THA IS ACTING DUMB -  ', data);
   const officeNames = [
     'Los Angeles, CA',
     'San Francisco, CA',

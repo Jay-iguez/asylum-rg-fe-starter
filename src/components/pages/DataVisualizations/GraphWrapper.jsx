@@ -73,39 +73,63 @@ function GraphWrapper(props) {
     
     */
 
-    if (office === 'all' || !office) {
-      axios
-        .get(process.env.REACT_APP_API_URI, {
-          // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
-          params: {
-            from: years[0],
-            to: years[1],
-          },
-        })
-        .then(result => {
-          stateSettingCallback(view, office, test_data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
-        })
-        .catch(err => {
-          console.error(err);
-        });
-    } else {
-      axios
-        .get(process.env.REACT_APP_API_URI, {
-          // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
-          params: {
-            from: years[0],
-            to: years[1],
-            office: office,
-          },
-        })
-        .then(result => {
-          stateSettingCallback(view, office, test_data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
-        })
-        .catch(err => {
-          console.error(err);
-        });
+    const fetch_api_data = async () => {
+      try {
+        let fiscalSummary;
+
+        if (office === 'all' || !office) {
+          fiscalSummary = await axios.get(
+            'https://hrf-asylum-be-b.herokuapp.com/case/fiscalSummary',
+            {
+              params: {
+                from: years[0],
+                to: years[1],
+              },
+            }
+          );
+        } else {
+          fiscalSummary = await axios.get(
+            'https://hrf-asylum-be-b.herokuapp.com/case/fiscalSummary',
+            {
+              params: {
+                from: years[0],
+                to: years[1],
+                office: office,
+              },
+            }
+          );
+        }
+
+        fiscalSummary = fiscalSummary.data;
+
+        let citizenshipSummary = await axios.get(
+          'https://hrf-asylum-be-b.herokuapp.com/case/citizenshipSummary'
+        );
+
+        citizenshipSummary = citizenshipSummary.data;
+
+        //console.log('CITIZEN? - ', citizenshipSummary);
+
+        fiscalSummary.citizenshipResults = citizenshipSummary;
+
+        let return_array = [fiscalSummary];
+
+        stateSettingCallback(view, office, return_array);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetch_api_data();
+
+    /* Attempt at conditional check for api call to prevent unnecessary calls
+
+ if (!view) {
+      fetch_api_data();
     }
+    */
   }
+
   const clearQuery = (view, office) => {
     dispatch(resetVisualizationQuery(view, office));
   };
