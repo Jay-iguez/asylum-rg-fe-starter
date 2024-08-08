@@ -10,7 +10,7 @@ import YearLimitsSelect from './YearLimitsSelect';
 import ViewSelect from './ViewSelect';
 import axios from 'axios';
 import { resetVisualizationQuery } from '../../../state/actionCreators';
-import test_data from '../../../data/test_data.json';
+//import test_data from '../../../data/test_data.json';
 import { colors } from '../../../styles/data_vis_colors';
 import ScrollToTopOnMount from '../../../utils/scrollToTopOnMount';
 
@@ -108,8 +108,6 @@ function GraphWrapper(props) {
 
         citizenshipSummary = citizenshipSummary.data;
 
-        //console.log('CITIZEN? - ', citizenshipSummary);
-
         fiscalSummary.citizenshipResults = citizenshipSummary;
 
         let return_array = [fiscalSummary];
@@ -121,13 +119,6 @@ function GraphWrapper(props) {
     };
 
     fetch_api_data();
-
-    /* Attempt at conditional check for api call to prevent unnecessary calls
-
- if (!view) {
-      fetch_api_data();
-    }
-    */
   }
 
   const clearQuery = (view, office) => {
