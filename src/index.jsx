@@ -14,7 +14,9 @@ import { LandingPage } from './components/pages/Landing';
 import { FooterContent, SubFooter } from './components/Layout/Footer';
 import { HeaderContent } from './components/Layout/Header';
 
-//import Profile from './components/pages/Profile/Profile';
+import LoadingComponent from './components/common/LoadingComponent';
+
+import Profile from './components/pages/User/Profile';
 
 // import { TablePage } from './components/pages/Table';
 
@@ -52,21 +54,11 @@ export function App() {
   //console.log('ath?', isAuthenticated);
 
   if (isLoading) {
-    console.log('The app is currently loading...');
-    return (
-      <div>
-        <p>Loading...</p>
-      </div>
-    );
-  }
-
-  if (isAuthenticated) {
-    console.log('The user is authenticated - whats the issue? ');
+    return <LoadingComponent message={'Loading please wait...'} />;
   }
 
   if (error) {
     console.error(error);
-    return <div>what....{error.message}</div>;
   }
 
   return (
@@ -84,7 +76,7 @@ export function App() {
       <Switch>
         <Route path="/" exact component={LandingPage} />
         <Route path="/graphs" component={GraphsContainer} />
-
+        <Route path="/profile" component={Profile} />
         <Route component={NotFoundPage} />
       </Switch>
       <Footer

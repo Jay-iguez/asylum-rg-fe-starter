@@ -4,11 +4,15 @@ import { Link } from 'react-router-dom';
 import Logo from '../../styles/Images/WhiteLogo.png';
 import { colors } from '../../styles/data_vis_colors';
 
-import IsAuthenticated from '../../auth/IsAuthenticated';
+import IsLoggedIn from '../../auth/IsAuthenticated';
+
+import { useAuth0 } from '@auth0/auth0-react';
 
 const { primary_accent_color } = colors;
 
 function HeaderContent() {
+  const { isAuthenticated } = useAuth0();
+
   return (
     <div
       style={{
@@ -39,12 +43,12 @@ function HeaderContent() {
           </Link>
         </div>
         <div style={{ width: '100%' }}>
-          {/* Where profile is going to go upon authorization
-          <Link to="/graphs" style={{ color: '#E2F0F7' }}>
-            Profile
-          </Link>
-            */}
-          <IsAuthenticated />
+          {isAuthenticated ? (
+            <Link to="/profile" style={{ color: '#E2F0F7' }}>
+              Profile
+            </Link>
+          ) : null}
+          <IsLoggedIn />
         </div>
       </div>
     </div>
