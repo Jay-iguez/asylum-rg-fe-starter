@@ -4,14 +4,20 @@ import '../../../styles/components/Profile.less';
 
 import { useAuth0 } from '@auth0/auth0-react';
 
+import { InformationContainer } from './InformationComponent';
+
+const InnerContainer = ({ children }) => {
+  return <div className="profile-inner-container">{children}</div>;
+};
+
 function ProfileContainer() {
   const { user } = useAuth0();
   const { name, email, picture } = user;
 
   return (
     <div id="profile-container">
-      <div className="profile-inner-container">
-        <div className="information-container">
+      <InnerContainer>
+        <InformationContainer>
           <h3 className="information-header">Profile</h3>
           <img src={picture} id="information-profile-image" alt="profile pic" />
           <div className="information-sub-text-container">
@@ -22,10 +28,10 @@ function ProfileContainer() {
             <h3 className="information-sub-top">Email -</h3>
             <h3 className="information-sub-bottom">{email}</h3>
           </div>
-        </div>
-      </div>
-      <div className="profile-inner-container">
-        <div className="information-container">
+        </InformationContainer>
+      </InnerContainer>
+      <InnerContainer>
+        <InformationContainer>
           <h3 className="information-header">Information</h3>
           <p className="information-text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -45,8 +51,8 @@ function ProfileContainer() {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
-        </div>
-      </div>
+        </InformationContainer>
+      </InnerContainer>
     </div>
   );
 }
