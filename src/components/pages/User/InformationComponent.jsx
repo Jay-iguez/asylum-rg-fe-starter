@@ -28,3 +28,9 @@ export const Image = props => {
 
   return <img src={photo} id={id} alt={alt} />;
 };
+
+export const Text = props => {
+  const { text } = props;
+
+  return <p className="information-text">{text}</p>;
+};
