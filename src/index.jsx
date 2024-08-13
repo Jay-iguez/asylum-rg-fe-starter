@@ -49,7 +49,7 @@ ReactDOM.render(
 
 export function App() {
   const { Footer, Header } = Layout;
-  const { isLoading, isAuthenticated, error } = useAuth0();
+  const { isLoading, error } = useAuth0();
 
   //console.log('ath?', isAuthenticated);
 

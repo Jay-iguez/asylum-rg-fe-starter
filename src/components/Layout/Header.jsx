@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../../styles/Images/WhiteLogo.png';
 import { colors } from '../../styles/data_vis_colors';
 
-import IsLoggedIn from '../../auth/IsAuthenticated';
+import IsLoggedIn from '../../auth/IsLoggedIn';
 
 import { useAuth0 } from '@auth0/auth0-react';
 
@@ -30,26 +30,32 @@ function HeaderContent() {
       <div
         style={{
           display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
+          justifyContent: 'space-between',
         }}
       >
-        <div style={{ borderBottom: '.1rem solid #E2F0F7' }}>
-          <Link to="/" style={{ color: '#E2F0F7', paddingRight: '75px' }}>
-            Home
-          </Link>
-          <Link to="/graphs" style={{ color: '#E2F0F7' }}>
-            Graphs
-          </Link>
-        </div>
-        <div style={{ width: '100%' }}>
-          {isAuthenticated ? (
-            <Link to="/profile" style={{ color: '#E2F0F7' }}>
+        {isAuthenticated ? (
+          <>
+            <Link to="/profile" style={{ color: '#E2F0F7', margin: '0 .5rem' }}>
               Profile
             </Link>
-          ) : null}
-          <IsLoggedIn />
-        </div>
+            <div
+              style={{
+                color: '#E2F0F7',
+                margin: '0 .5rem',
+                marginLeft: '.5rem',
+              }}
+            >
+              |
+            </div>
+          </>
+        ) : null}
+        <Link to="/" style={{ color: '#E2F0F7', margin: '0 .5rem' }}>
+          Home
+        </Link>
+        <Link to="/graphs" style={{ color: '#E2F0F7', margin: '0 .5rem' }}>
+          Graphs
+        </Link>
+        <IsLoggedIn />
       </div>
     </div>
   );
