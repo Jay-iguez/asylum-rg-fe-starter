@@ -4,7 +4,12 @@ import '../../../styles/components/Profile.less';
 
 import { useAuth0 } from '@auth0/auth0-react';
 
-import { InformationContainer } from './InformationComponent';
+import {
+  InformationContainer,
+  Heading,
+  SubHeading,
+  Image,
+} from './InformationComponent';
 
 const InnerContainer = ({ children }) => {
   return <div className="profile-inner-container">{children}</div>;
@@ -18,16 +23,14 @@ function ProfileContainer() {
     <div id="profile-container">
       <InnerContainer>
         <InformationContainer>
-          <h3 className="information-header">Profile</h3>
-          <img src={picture} id="information-profile-image" alt="profile pic" />
-          <div className="information-sub-text-container">
-            <h3 className="information-sub-top">User -</h3>
-            <h3 className="information-sub-bottom">{name}</h3>
-          </div>
-          <div className="information-sub-text-container">
-            <h3 className="information-sub-top">Email -</h3>
-            <h3 className="information-sub-bottom">{email}</h3>
-          </div>
+          <Heading text="Profile" />
+          <Image
+            photo={picture}
+            id="information-profile-image"
+            alt="profile image"
+          />
+          <SubHeading top_text="User" bottom_text={name} />
+          <SubHeading top_text="Email" bottom_text={email} />
         </InformationContainer>
       </InnerContainer>
       <InnerContainer>
