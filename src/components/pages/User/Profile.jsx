@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../../../styles/components/Profile.less';
+
 import LoadingComponent from '../../common/LoadingComponent';
 
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
@@ -9,136 +11,25 @@ function Profile() {
   const { picture, email, name } = user;
 
   return (
-    <div
-      style={{
-        height: '100%',
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          flexFlow: 'column nowrap',
-          marginLeft: '20%',
-          marginRight: '20%',
-        }}
-      >
-        <div
-          style={{
-            display: 'flex',
-            flexFlow: 'column nowrap',
-            alignItems: 'center',
-            margin: '1rem .5rem',
-            backgroundColor: '#dae0e3',
-            color: '#E2F0F7',
-          }}
-        >
-          <h3
-            style={{
-              color: '#E2F0F7',
-              backgroundColor: '#404c4a',
-              fontWeight: 'bold',
-              width: '100%',
-              textAlign: 'center',
-            }}
-          >
-            Profile
-          </h3>
-          <img
-            src={picture}
-            style={{
-              width: '8rem',
-              height: '8rem',
-              paddingLeft: '.5rem',
-              borderRadius: '50%',
-            }}
-            alt="profile pic"
-          />
-          <div style={{ margin: '.5rem 0' }}>
-            <h3
-              style={{
-                color: '#3A3B3C',
-                borderTop: '.1rem solid #404c4a',
-                fontWeight: 'bold',
-                paddingLeft: '.5rem',
-                textAlign: 'center',
-              }}
-            >
-              User -
-            </h3>
-            <h3
-              style={{
-                color: '#3A3B3C',
-                borderBottom: '.2rem solid #404c4a',
-                fontWeight: 'bold',
-                paddingLeft: '.5rem',
-              }}
-            >
-              {name}
-            </h3>
+    <div id="profile-container">
+      <div className="profile-inner-container">
+        <div className="information-container">
+          <h3 className="information-header">Profile</h3>
+          <img src={picture} id="information-profile-image" alt="profile pic" />
+          <div className="information-sub-text-container">
+            <h3 className="information-sub-top">User -</h3>
+            <h3 className="information-sub-bottom">{name}</h3>
           </div>
-          <div style={{ margin: '.5rem 0' }}>
-            <h3
-              style={{
-                color: '#3A3B3C',
-                borderTop: '.1rem solid #404c4a',
-                fontWeight: 'bold',
-                paddingLeft: '.5rem',
-                textAlign: 'center',
-              }}
-            >
-              Email -
-            </h3>
-            <h3
-              style={{
-                color: '#3A3B3C',
-                borderBottom: '.2rem solid #404c4a',
-                fontWeight: 'bold',
-                paddingLeft: '.5rem',
-              }}
-            >
-              {email}
-            </h3>
+          <div className="information-sub-text-container">
+            <h3 className="information-sub-top">Email -</h3>
+            <h3 className="information-sub-bottom">{email}</h3>
           </div>
         </div>
       </div>
-      <div
-        style={{
-          display: 'flex',
-          flexFlow: 'column nowrap',
-          marginLeft: '20%',
-          marginRight: '20%',
-        }}
-      >
-        <div
-          style={{
-            display: 'flex',
-            flexFlow: 'column nowrap',
-            alignItems: 'center',
-            margin: '1rem .5rem',
-            backgroundColor: '#dae0e3',
-            color: '#E2F0F7',
-          }}
-        >
-          <h3
-            style={{
-              color: '#E2F0F7',
-              backgroundColor: '#404c4a',
-              fontWeight: 'bold',
-              width: '100%',
-              textAlign: 'center',
-            }}
-          >
-            Information
-          </h3>
-          <p
-            style={{
-              color: '#3A3B3C',
-              borderBottom: '.2rem solid #404c4a',
-              fontWeight: 'bold',
-              paddingLeft: '.5rem',
-              textAlign: 'center',
-            }}
-          >
+      <div className="profile-inner-container">
+        <div className="information-container">
+          <h3 className="information-header">Information</h3>
+          <p className="information-text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -147,15 +38,7 @@ function Profile() {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
-          <p
-            style={{
-              color: '#3A3B3C',
-              borderBottom: '.2rem solid #404c4a',
-              fontWeight: 'bold',
-              paddingLeft: '.5rem',
-              textAlign: 'center',
-            }}
-          >
+          <p className="information-text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut

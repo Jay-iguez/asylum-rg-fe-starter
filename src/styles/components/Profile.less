@@ -1,0 +1,75 @@
+//src/styles/components/Profile.less
+
+// Less Variables
+@information-background-color: #DAE0E3;
+@heading-background-color: #404C4A;
+
+@heading-header-font-color: #E2F0F7;
+@heading-sub-font-color: #3A3B3C;
+
+// Less Mixins
+#text-content-basis(@font-color) {
+    color: @font-color;
+    text-align: center;
+}
+
+// Less classes / ids
+
+#profile-container {
+    height: 100%;
+}
+
+.profile-inner-container {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.information-container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin: 1rem .5rem;
+    background-color: @information-background-color;
+}
+
+#information-profile-image {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+}
+
+.information-header {
+    #text-content-basis(@heading-header-font-color);
+
+    background-color: @heading-background-color;
+    font-weight: bold;
+    width: 100%;
+}
+
+.information-sub-text-container {
+    margin: .5rem 0;
+}
+
+.information-sub-top {
+    #text-content-basis(@heading-sub-font-color);
+
+    border-top: .1rem solid @heading-background-color;
+    font-weight: bold;
+}
+
+.information-sub-bottom {
+    #text-content-basis(@heading-sub-font-color);
+
+    border-bottom: .2rem solid @heading-background-color;
+    font-weight: bold;
+}
+
+.information-text {
+    #text-content-basis(@heading-sub-font-color);
+
+    border-bottom: .1rem solid @heading-background-color;
+    margin-bottom: 1.2rem;
+}
+
