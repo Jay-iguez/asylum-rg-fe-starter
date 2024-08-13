@@ -51,8 +51,6 @@ export function App() {
   const { Footer, Header } = Layout;
   const { isLoading, error } = useAuth0();
 
-  //console.log('ath?', isAuthenticated);
-
   if (isLoading) {
     return <LoadingComponent message={'Loading please wait...'} />;
   }
